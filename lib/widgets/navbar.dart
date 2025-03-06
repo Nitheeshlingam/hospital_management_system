@@ -5,13 +5,14 @@ import 'package:hms_app/routes/routenames.dart';
 
 AppBar appBar(BuildContext context) {
   return AppBar(
-    title: const Text(
-      'Hospital Management System',
-      style: TextStyle(
-        color: Color(0xFF2ECC71),
-        fontWeight: FontWeight.bold,
-        fontSize: 20.0,
-      ),
+    toolbarHeight: 80,
+    elevation: 10,
+    shadowColor: Colors.grey.withOpacity(0.5),
+    backgroundColor: Colors.white,
+    title: Image.asset(
+      'assets/images/hms_logo.png',
+      height: 80,
+      width: 200,
     ),
     actions: [
       IconButton(

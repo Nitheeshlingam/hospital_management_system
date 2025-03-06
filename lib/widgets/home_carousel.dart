@@ -49,7 +49,8 @@ class _HomeCarouselState extends State<HomeCarousel> {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: Image.asset(path, fit: BoxFit.cover, width: 1000),
+                  child: Image.asset(path,
+                      fit: BoxFit.cover, width: 1000, height: 300),
                 ),
                 Positioned(
                     top: 115,

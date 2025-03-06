@@ -5,8 +5,8 @@ import 'package:hms_app/widgets/custom_password_field.dart';
 import 'package:hms_app/widgets/custom_textfield.dart';
 import 'package:hms_app/models/user_model.dart';
 import 'package:hms_app/widgets/custom_snackbar.dart';
-import 'package:hms_app/widgets/navbar.dart';
 import 'package:hms_app/routes/routenames.dart';
+import 'package:hms_app/widgets/navbar.dart';
 
 class LoginController extends StatefulWidget {
   const LoginController({super.key});
@@ -46,15 +46,13 @@ class _LoginControllerState extends State<LoginController> {
 
     if (isValidUser) {
       await Future.delayed(const Duration(milliseconds: 500));
-      context.go(RouteNames.home); // ✅ GoRouter navigation
+      context.go(RouteNames.home);
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(context),
-      drawer: drawer(context),
       body: Stack(
         children: [
           Container(

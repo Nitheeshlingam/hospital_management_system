@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hms_app/widgets/Footer.dart';
 import 'package:hms_app/widgets/custom_button.dart';
 import 'package:hms_app/widgets/custom_textfield.dart';
 import 'package:hms_app/widgets/navbar.dart';
@@ -72,154 +73,144 @@ class _AppointmentPageState extends State<AppointmentPage> {
         ),
         child: Center(
           child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Card(
-                elevation: 10,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Image.asset(
-                        'assets/app_logo.png',
-                        height: 80,
-                        width: 80,
-                      ),
-                      const Text(
-                        "Hospital Management System",
-                        style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black),
-                      ),
-                      const SizedBox(height: 20),
-                      const Text(
-                        "Book an Appointment",
-                        style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 28, 224, 142)),
-                      ),
-                      const SizedBox(height: 30),
-
-                      // All form fields in a Column (one per row)
-                      CustomTextField(
-                        controller: _nameController,
-                        label: "Patient's Name",
-                        icon: Icons.person,
-                      ),
-                      const SizedBox(height: 16),
-
-                      CustomTextField(
-                        controller: _addressController,
-                        label: "Address",
-                        icon: Icons.location_on,
-                      ),
-                      const SizedBox(height: 16),
-
-                      CustomTextField(
-                        controller: _cityController,
-                        label: "City",
-                        icon: Icons.location_city,
-                      ),
-                      const SizedBox(height: 16),
-
-                      CustomTextField(
-                        controller: _contactController,
-                        label: "Contact Number",
-                        icon: Icons.phone,
-                      ),
-                      const SizedBox(height: 16),
-
-                      CustomTextField(
-                        controller: _loginIdController,
-                        label: "Login ID",
-                        icon: Icons.login,
-                      ),
-                      const SizedBox(height: 16),
-
-                      TextField(
-                        controller: _passwordController,
-                        obscureText: true,
-                        decoration: const InputDecoration(
-                          labelText: "Password",
-                          prefixIcon: Icon(Icons.lock),
-                          border: OutlineInputBorder(),
+            child: Column(children: [
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Card(
+                  elevation: 10,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const SizedBox(height: 20),
+                        const Text(
+                          "Book an Appointment",
+                          style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 28, 224, 142)),
                         ),
-                      ),
-                      const SizedBox(height: 16),
+                        const SizedBox(height: 30),
 
-                      _buildDropdown(
-                          "Select Gender", _selectedGender, _genderOptions,
-                          (newValue) {
-                        setState(() {
-                          _selectedGender = newValue;
-                        });
-                      }),
-                      const SizedBox(height: 16),
-
-                      _buildDateField("Date of Birth", Icons.calendar_today,
-                          _dobController),
-                      const SizedBox(height: 16),
-
-                      _buildDateField("Appointment Date", Icons.event,
-                          _appointmentDateController),
-                      const SizedBox(height: 16),
-
-                      _buildTimeField("Appointment Time", Icons.access_time,
-                          _appointmentTimeController),
-                      const SizedBox(height: 16),
-
-                      _buildDropdown("Select Department", _selectedDepartment,
-                          _departmentOptions, (newValue) {
-                        setState(() {
-                          _selectedDepartment = newValue;
-                        });
-                      }),
-                      const SizedBox(height: 16),
-
-                      _buildDropdown(
-                          "Select Doctor", _selectedDoctor, _doctorOptions,
-                          (newValue) {
-                        setState(() {
-                          _selectedDoctor = newValue;
-                        });
-                      }),
-                      const SizedBox(height: 16),
-
-                      TextField(
-                        controller: _appointmentReasonController,
-                        decoration: const InputDecoration(
-                          labelText: "Appointment Reason",
-                          border: OutlineInputBorder(),
+                        // All form fields in a Column (one per row)
+                        CustomTextField(
+                          controller: _nameController,
+                          label: "Patient's Name",
+                          icon: Icons.person,
                         ),
-                        maxLines: 3,
-                      ),
-                      const SizedBox(height: 30),
+                        const SizedBox(height: 16),
 
-                      SizedBox(
-                        width: 280,
-                        child: CustomButton(
-                          text: "MAKE AN APPOINTMENT",
-                          onPressed: _makeAppointment,
+                        CustomTextField(
+                          controller: _addressController,
+                          label: "Address",
+                          icon: Icons.location_on,
                         ),
-                      ),
-                    ],
+                        const SizedBox(height: 16),
+
+                        CustomTextField(
+                          controller: _cityController,
+                          label: "City",
+                          icon: Icons.location_city,
+                        ),
+                        const SizedBox(height: 16),
+
+                        CustomTextField(
+                          controller: _contactController,
+                          label: "Contact Number",
+                          icon: Icons.phone,
+                        ),
+                        const SizedBox(height: 16),
+
+                        CustomTextField(
+                          controller: _loginIdController,
+                          label: "Login ID",
+                          icon: Icons.login,
+                        ),
+                        const SizedBox(height: 16),
+
+                        TextField(
+                          controller: _passwordController,
+                          obscureText: true,
+                          decoration: const InputDecoration(
+                            labelText: "Password",
+                            prefixIcon: Icon(Icons.lock),
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+
+                        _buildDropdown(
+                            "Select Gender", _selectedGender, _genderOptions,
+                            (newValue) {
+                          setState(() {
+                            _selectedGender = newValue;
+                          });
+                        }),
+                        const SizedBox(height: 16),
+
+                        _buildDateField("Date of Birth", Icons.calendar_today,
+                            _dobController),
+                        const SizedBox(height: 16),
+
+                        _buildDateField("Appointment Date", Icons.event,
+                            _appointmentDateController),
+                        const SizedBox(height: 16),
+
+                        _buildTimeField("Appointment Time", Icons.access_time,
+                            _appointmentTimeController),
+                        const SizedBox(height: 16),
+
+                        _buildDropdown("Select Department", _selectedDepartment,
+                            _departmentOptions, (newValue) {
+                          setState(() {
+                            _selectedDepartment = newValue;
+                          });
+                        }),
+                        const SizedBox(height: 16),
+
+                        _buildDropdown(
+                            "Select Doctor", _selectedDoctor, _doctorOptions,
+                            (newValue) {
+                          setState(() {
+                            _selectedDoctor = newValue;
+                          });
+                        }),
+                        const SizedBox(height: 16),
+
+                        TextField(
+                          controller: _appointmentReasonController,
+                          decoration: const InputDecoration(
+                            labelText: "Appointment Reason",
+                            border: OutlineInputBorder(),
+                          ),
+                          maxLines: 5,
+                        ),
+                        const SizedBox(height: 30),
+
+                        SizedBox(
+                          width: 280,
+                          child: CustomButton(
+                            text: "MAKE AN APPOINTMENT",
+                            onPressed: _makeAppointment,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
+              Footer()
+            ]),
           ),
         ),
       ),
     );
   }
 
-  // Helper function to build date fields
   Widget _buildDateField(
       String label, IconData icon, TextEditingController controller) {
     return TextField(
@@ -246,7 +237,6 @@ class _AppointmentPageState extends State<AppointmentPage> {
     );
   }
 
-  // Helper function to build time fields
   Widget _buildTimeField(
       String label, IconData icon, TextEditingController controller) {
     return TextField(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hms_app/widgets/Footer.dart';
 import 'package:hms_app/widgets/navbar.dart';
 import 'package:hms_app/widgets/home_carousel.dart';
 import 'package:hms_app/widgets/card_layout.dart';
@@ -30,16 +31,16 @@ class _HomePageState extends State<HomePage> {
             ),
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: HomeCarousel(),
-                ),
                 Expanded(
                   child: SingleChildScrollView(
                     scrollDirection: Axis.vertical,
                     padding: EdgeInsets.all(8.0),
                     child: Column(
                       children: [
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: HomeCarousel(),
+                        ),
                         cardLayout(
                           Container(
                             child: Column(
@@ -170,6 +171,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
+                        Footer()
                       ],
                     ),
                   ),
