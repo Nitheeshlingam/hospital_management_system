@@ -53,7 +53,9 @@ Widget drawerItem(
         fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
       ),
     ),
-    tileColor: isSelected ? Colors.green : Colors.transparent,
+    tileColor: isSelected
+        ? const Color.fromARGB(255, 114, 216, 118)
+        : Colors.transparent,
     onTap: () {
       context.go(route);
     },
@@ -64,60 +66,55 @@ Drawer drawer(BuildContext context) {
   String currentRoute = GoRouterState.of(context).uri.toString();
 
   return Drawer(
-    child: ListView(
-      padding: EdgeInsets.zero,
+    child: Column(
       children: [
-        DrawerHeader(
-          decoration: const BoxDecoration(color: Color(0xFF2ECC71)),
-          child: const Text(
-            'Menu',
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 20.0,
-            ),
+        Expanded(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              DrawerHeader(
+                decoration: const BoxDecoration(color: Color(0xFF2ECC71)),
+                margin: EdgeInsets.all(0),
+                padding: EdgeInsets.all(10),
+                child: const Text(
+                  'Menu',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
+                  ),
+                ),
+              ),
+              drawerItem(context,
+                  icon: Icons.home,
+                  title: 'Home',
+                  route: RouteNames.home,
+                  currentRoute: currentRoute),
+              drawerItem(context,
+                  icon: Icons.info,
+                  title: 'About',
+                  route: RouteNames.about,
+                  currentRoute: currentRoute),
+              drawerItem(context,
+                  icon: FontAwesomeIcons.calendarCheck,
+                  title: 'Appointments',
+                  route: RouteNames.appointment,
+                  currentRoute: currentRoute),
+              drawerItem(context,
+                  icon: Icons.contact_page,
+                  title: 'Contact',
+                  route: RouteNames.contact,
+                  currentRoute: currentRoute),
+              drawerItem(context,
+                  icon: Icons.login,
+                  title: 'Login',
+                  route: RouteNames.login,
+                  currentRoute: currentRoute),
+            ],
           ),
         ),
-        drawerItem(context,
-            icon: Icons.home,
-            title: 'Home',
-            route: RouteNames.home,
-            currentRoute: currentRoute),
-        drawerItem(context,
-            icon: Icons.info,
-            title: 'About',
-            route: RouteNames.about,
-            currentRoute: currentRoute),
-        drawerItem(context,
-            icon: FontAwesomeIcons.calendarCheck,
-            title: 'Appointments',
-            route: RouteNames.appointment,
-            currentRoute: currentRoute),
-        drawerItem(context,
-            icon: Icons.contact_page,
-            title: 'Contact',
-            route: RouteNames.contact,
-            currentRoute: currentRoute),
-        drawerItem(context,
-            icon: Icons.login,
-            title: 'Login',
-            route: RouteNames.login,
-            currentRoute: currentRoute),
+        // Contact information at the bottom
       ],
     ),
   );
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: appBar(context),
-      drawer: drawer(context),
-      body: const Center(
-          child: Text('Home Page', style: TextStyle(fontSize: 24))),
-    );
-  }
 }
