@@ -12,7 +12,6 @@ class AppointmentPage extends StatefulWidget {
 }
 
 class _AppointmentPageState extends State<AppointmentPage> {
-  // Controllers for text fields
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _addressController = TextEditingController();
   final TextEditingController _cityController = TextEditingController();
@@ -27,12 +26,10 @@ class _AppointmentPageState extends State<AppointmentPage> {
   final TextEditingController _appointmentReasonController =
       TextEditingController();
 
-  // Dropdown values
   String? _selectedGender;
   String? _selectedDepartment;
   String? _selectedDoctor;
 
-  // Dropdown options
   final List<String> _genderOptions = ['Male', 'Female', 'Other'];
   final List<String> _departmentOptions = [
     'Cardiology',
@@ -49,7 +46,6 @@ class _AppointmentPageState extends State<AppointmentPage> {
     'Dr. Brown'
   ];
 
-  // Appointment submission
   void _makeAppointment() {
     print('Appointment submitted');
   }
@@ -95,43 +91,36 @@ class _AppointmentPageState extends State<AppointmentPage> {
                               color: Color.fromARGB(255, 28, 224, 142)),
                         ),
                         const SizedBox(height: 30),
-
-                        // All form fields in a Column (one per row)
                         CustomTextField(
                           controller: _nameController,
                           label: "Patient's Name",
                           icon: Icons.person,
                         ),
                         const SizedBox(height: 16),
-
                         CustomTextField(
                           controller: _addressController,
                           label: "Address",
                           icon: Icons.location_on,
                         ),
                         const SizedBox(height: 16),
-
                         CustomTextField(
                           controller: _cityController,
                           label: "City",
                           icon: Icons.location_city,
                         ),
                         const SizedBox(height: 16),
-
                         CustomTextField(
                           controller: _contactController,
                           label: "Contact Number",
                           icon: Icons.phone,
                         ),
                         const SizedBox(height: 16),
-
                         CustomTextField(
                           controller: _loginIdController,
                           label: "Login ID",
                           icon: Icons.login,
                         ),
                         const SizedBox(height: 16),
-
                         TextField(
                           controller: _passwordController,
                           obscureText: true,
@@ -142,7 +131,6 @@ class _AppointmentPageState extends State<AppointmentPage> {
                           ),
                         ),
                         const SizedBox(height: 16),
-
                         _buildDropdown(
                             "Select Gender", _selectedGender, _genderOptions,
                             (newValue) {
@@ -151,19 +139,15 @@ class _AppointmentPageState extends State<AppointmentPage> {
                           });
                         }),
                         const SizedBox(height: 16),
-
                         _buildDateField("Date of Birth", Icons.calendar_today,
                             _dobController),
                         const SizedBox(height: 16),
-
                         _buildDateField("Appointment Date", Icons.event,
                             _appointmentDateController),
                         const SizedBox(height: 16),
-
                         _buildTimeField("Appointment Time", Icons.access_time,
                             _appointmentTimeController),
                         const SizedBox(height: 16),
-
                         _buildDropdown("Select Department", _selectedDepartment,
                             _departmentOptions, (newValue) {
                           setState(() {
@@ -171,7 +155,6 @@ class _AppointmentPageState extends State<AppointmentPage> {
                           });
                         }),
                         const SizedBox(height: 16),
-
                         _buildDropdown(
                             "Select Doctor", _selectedDoctor, _doctorOptions,
                             (newValue) {
@@ -180,7 +163,6 @@ class _AppointmentPageState extends State<AppointmentPage> {
                           });
                         }),
                         const SizedBox(height: 16),
-
                         TextField(
                           controller: _appointmentReasonController,
                           decoration: const InputDecoration(
@@ -190,7 +172,6 @@ class _AppointmentPageState extends State<AppointmentPage> {
                           maxLines: 5,
                         ),
                         const SizedBox(height: 30),
-
                         SizedBox(
                           width: 280,
                           child: CustomButton(

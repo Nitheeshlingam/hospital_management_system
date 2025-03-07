@@ -5,6 +5,8 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final int currentYear = DateTime.now().year;
+
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
@@ -85,8 +87,8 @@ class Footer extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                '© 2025 Hospital Management System - ',
+              Text(
+                '© $currentYear Hospital Management System - ',
                 style: TextStyle(
                   fontSize: 12,
                   color: Colors.black54,

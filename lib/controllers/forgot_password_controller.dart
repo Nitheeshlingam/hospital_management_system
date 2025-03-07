@@ -47,7 +47,6 @@ class _ForgotPasswordControllerState extends State<ForgotPasswordController> {
       _isLoading = false;
     });
 
-    // Show custom snackbar
     CustomSnackBar.show(
       context: context,
       message: isSuccess
@@ -80,7 +79,6 @@ class _ForgotPasswordControllerState extends State<ForgotPasswordController> {
     return Scaffold(
       body: Stack(
         children: [
-          // Gradient Background
           Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -94,7 +92,6 @@ class _ForgotPasswordControllerState extends State<ForgotPasswordController> {
               ),
             ),
           ),
-
           Center(
             child: SingleChildScrollView(
               child: Padding(
@@ -215,7 +212,7 @@ class _ForgotPasswordControllerState extends State<ForgotPasswordController> {
                           ],
                         ),
                       ),
-                      if (_isLoading) // Move loading indicator here
+                      if (_isLoading)
                         const Positioned(
                           top: 0,
                           left: 0,

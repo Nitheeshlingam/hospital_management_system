@@ -6,7 +6,6 @@ import 'package:hms_app/widgets/custom_textfield.dart';
 import 'package:hms_app/models/user_model.dart';
 import 'package:hms_app/widgets/custom_snackbar.dart';
 import 'package:hms_app/routes/routenames.dart';
-import 'package:hms_app/widgets/navbar.dart';
 
 class LoginController extends StatefulWidget {
   const LoginController({super.key});
@@ -26,7 +25,6 @@ class _LoginControllerState extends State<LoginController> {
       _isLoading = true;
     });
 
-    // Simulate network request
     await Future.delayed(const Duration(milliseconds: 500));
 
     bool isValidUser = UserModel.users.any((user) =>
@@ -37,7 +35,6 @@ class _LoginControllerState extends State<LoginController> {
       _isLoading = false;
     });
 
-    // Show appropriate message
     CustomSnackBar.show(
       context: context,
       message: isValidUser ? 'Login Successful' : 'Invalid Credentials',
@@ -84,10 +81,13 @@ class _LoginControllerState extends State<LoginController> {
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Image.asset(
-                              'assets/app_logo.png',
-                              height: 80,
-                              width: 80,
+                            GestureDetector(
+                              onTap: () => {context.push(RouteNames.home)},
+                              child: Image.asset(
+                                'assets/app_logo.png',
+                                height: 80,
+                                width: 80,
+                              ),
                             ),
                             const Text(
                               "Hospital Management System",
@@ -149,7 +149,7 @@ class _LoginControllerState extends State<LoginController> {
                           ],
                         ),
                       ),
-                      if (_isLoading) // Move loading indicator here
+                      if (_isLoading)
                         const Positioned(
                           top: 0,
                           left: 0,
